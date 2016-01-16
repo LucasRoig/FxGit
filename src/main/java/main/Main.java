@@ -72,9 +72,9 @@ public class Main extends Application {
 	}
 	public void start(Stage primaryStage) throws IOException {
 		try {
-			root = FXMLLoader.load(getClass().getResource("MainWindow.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/fxml/MainWindow.fxml"));
 			Scene scene = new Scene(root,1000,600);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("/styles/styles.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Git Viewer");
 			primaryStage.show();
@@ -91,7 +91,7 @@ public class Main extends Application {
 	public void showCommitView(){
 		try{
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("CommitView.fxml"));
+			loader.setLocation(getClass().getResource("/fxml/CommitView.fxml"));
 			AnchorPane commitView = loader.load();
 			root.setCenter(commitView);
 			
