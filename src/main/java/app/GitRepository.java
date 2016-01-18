@@ -41,4 +41,8 @@ public class GitRepository {
 	public ObservableList<GitCommit> getCommitList(){
 		return commitList;
 	}
+	
+	public Repository getRepository(){
+		return repository;
+	}
 }

@@ -2,6 +2,7 @@ package app;
 
 import java.io.IOException;
 
+import org.eclipse.jgit.lib.ObjectLoader;
 import org.eclipse.jgit.lib.Repository;
 
 import javafx.application.Application;
@@ -21,7 +22,7 @@ public class MainWindow extends Application {
 			repository = new GitRepository("/home/lucas/Bureau/test/.git");
 			System.out.println("Repo initialisé");
 			
-			/* ---DEBUG-----
+			/* ---DEBUG-----*/
 			System.out.println("Nb commit : " + repository.getCommitList().size());
 			for(GitCommit commit : repository.getCommitList()){
 				System.out.println(commit.getMessage().getValue());
@@ -32,8 +33,13 @@ public class MainWindow extends Application {
 					for (GitObject object2 : ((GitTree) object).getChildren()){
 						System.out.println("dans dossier :" + object2.nom);
 					}
+				}else{
+					ObjectLoader loader = repository.getRepository().open(object.getId());
+					System.out.println("\n");
+					loader.copyTo(System.out);
+					System.out.println("\n");
 				}
-			}*/
+			}
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

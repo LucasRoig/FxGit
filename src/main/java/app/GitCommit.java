@@ -46,6 +46,7 @@ public class GitCommit {
 		
 		while(walk.next()){
 			GitObject object;
+			
 			if (walk.getDepth() == currentDepth - 1){
 				currentTree = currentTree.getParent();
 			}
@@ -61,6 +62,7 @@ public class GitCommit {
 			currentDepth = walk.getDepth();
 		}
 	}
+	
 	
 	public GitTree getTreeRoot(){
 		return treeRoot;
